@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+  
+      <record model="ir.ui.view" id="library_app_extended.reader_model_extended_form_inherit">
+        <field name="name">Library User Form</field>
+        <field name="model">library_app_extended.reader_model_extended</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="library_app.reader_model_form"></field>
+        <field name="arch" type="xml">
+  
+          <field name="postalcode" position="after">
+            <field name="personaldescription"></field>
+          </field>
+
+        </field>
+      </record>
+  
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="library_app.action_window_reader">
+        <field name="name">library_app_extended window</field>
+        <field name="res_model">library_app_extended.reader_model_extended</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+  
+      <!-- server action to the one above -->
+  <!--
+      <record model="ir.actions.server" id="library_app_extended.action_server">
+        <field name="name">library_app_extended server</field>
+        <field name="model_id" ref="model_library_app_extended_library_app_extended"/>
+        <field name="state">code</field>
+        <field name="code">
+          action = {
+            "type": "ir.actions.act_window",
+            "view_mode": "tree,form",
+            "res_model": model._name,
+          }
+        </field>
+      </record>
+  -->
+  
+      <!-- Top menu item -->
+  <!--
+      <menuitem name="library_app_extended" id="library_app_extended.menu_root"/>
+  -->
+      <!-- menu categories -->
+  <!--
+      <menuitem name="Menu 1" id="library_app_extended.menu_1" parent="library_app_extended.menu_root"/>
+      <menuitem name="Menu 2" id="library_app_extended.menu_2" parent="library_app_extended.menu_root"/>
+  -->
+      <!-- actions -->
+  <!--
+      <menuitem name="List" id="library_app_extended.menu_1_list" parent="library_app_extended.menu_1"
+                action="library_app_extended.action_window"/>
+      <menuitem name="Server to list" id="library_app_extended" parent="library_app_extended.menu_2"
+                action="library_app_extended.action_server"/>
+  -->
+    </data>
+  </odoo>
